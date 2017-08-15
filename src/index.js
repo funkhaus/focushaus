@@ -1,5 +1,10 @@
+import setupOverlay from './setupOverlay'
+import Vue from 'vue'
+
 const init = () => {
-  console.log('running')
+  wp.media.view.Modal.prototype.on('open', () => {
+    setupOverlay()
+  })
 }
 
-document.addEventListener('DOMContentLoaded', evt => { init() })
+window.addEventListener('load', evt => { init() })
