@@ -10568,10 +10568,6 @@ var _setupOverlay = __webpack_require__(5);
 
 var _setupOverlay2 = _interopRequireDefault(_setupOverlay);
 
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var init = function init() {
@@ -10616,7 +10612,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var refresh = function refresh() {
 
   // Remove existing overlay
-  jQuery('#focushaus-overlay').remove();
+  jQuery('#focushaus').remove();
 
   // Wrap image
   jQuery('.thumbnail-image img').wrap('<div class="fh-image-wrap" style="position: relative;"></div>');
@@ -10624,14 +10620,14 @@ var refresh = function refresh() {
   // Prepend element
   jQuery('.fh-image-wrap').prepend('<div id="focushaus" style="position: absolute; width: 100%; height: 100%;"><focushaus-wrap/></div>');
 
-  // Setup Vue
+  // Setup global components
   _vue2.default.component('fh-overlay', _overlay2.default);
   _vue2.default.component('fh-preview', _preview2.default);
+  _vue2.default.component('focushaus-wrap', _wrap2.default);
+
+  // Setup overlay
   new _vue2.default({
-    el: '#focushaus',
-    components: {
-      'focushaus-wrap': _wrap2.default
-    }
+    el: '#focushaus'
   });
 };
 
