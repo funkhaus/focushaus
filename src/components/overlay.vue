@@ -1,6 +1,6 @@
 <template>
 
-  <div class="overlay-wrap">
+  <div class="overlay-wrap" :style="{ 'max-width': `${fhWidth}px`, 'max-height': `${fhHeight}px` }">
     <div class="overlay" @mousemove="mousemove" @mousedown="mousedown" @mouseup="mouseup" >
       <div class="x axis" :style="{ top: `${offset.y}%` }"></div>
       <div class="y axis" :style="{ left: `${offset.x}%` }"></div>
@@ -58,6 +58,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+    margin: auto;
   }
   .overlay {
     position: absolute;

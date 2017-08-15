@@ -11075,7 +11075,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.overlay-wrap[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n.overlay[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.axis[data-v-20d6ced0] {\n  position: absolute;\n  background-color: #000;\n  border: 1px solid #fff;\n  pointer-events: none;\n}\n.x.axis[data-v-20d6ced0] {\n  left: -5px;\n  right: -5px;\n}\n.y.axis[data-v-20d6ced0] {\n  top: -5px;\n  bottom: -5px;\n}\n.controls[data-v-20d6ced0] {\n  position: absolute;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.overlay-wrap[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  margin: auto;\n}\n.overlay[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.axis[data-v-20d6ced0] {\n  position: absolute;\n  background-color: #000;\n  border: 1px solid #fff;\n  pointer-events: none;\n}\n.x.axis[data-v-20d6ced0] {\n  left: -5px;\n  right: -5px;\n}\n.y.axis[data-v-20d6ced0] {\n  top: -5px;\n  bottom: -5px;\n}\n.controls[data-v-20d6ced0] {\n  position: absolute;\n}\n\n\n", ""]);
 
 // exports
 
@@ -11179,7 +11179,11 @@ exports.default = {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "overlay-wrap"
+    staticClass: "overlay-wrap",
+    style: ({
+      'max-width': (_vm.fhWidth + "px"),
+      'max-height': (_vm.fhHeight + "px")
+    })
   }, [_c('div', {
     staticClass: "overlay",
     on: {
