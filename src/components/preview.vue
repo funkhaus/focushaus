@@ -1,6 +1,7 @@
 <template>
 
   <div class="preview" :class="{ shifted: shiftDown }">
+    <div class="instructions">Resize the preview with the handle on the lower right hand corner.<br/>Hold ⌘ to click through the preview and edit the focal point.</div>
     <button @click="$emit('previewToggled')">Close</button>
     <div
       class="resizable"
@@ -20,24 +21,28 @@ export default {
     }
   },
   methods: {
-    tryActivateShift(evt){
+    onKeyDown(evt){
+      if (evt.keyCode === 27) {
+        this.$emit('previewToggled')
+        evt.preventDefault()
+      }
       if (evt.keyCode === 91) {
         this.shiftDown = true
       }
     },
-    tryDeactivateShift(evt){
+    onKeyUp(evt){
       if (evt.keyCode === 91) {
         this.shiftDown = false
       }
     }
   },
   activated(){
-    window.addEventListener('keydown', this.tryActivateShift)
-    window.addEventListener('keyup', this.tryDeactivateShift)
+    window.addEventListener('keydown', this.onKeyDown)
+    window.addEventListener('keyup', this.onKeyUp)
   },
   deactivated(){
-    window.removeEventListener('keydown', this.tryActivateShift)
-    window.removeEventListener('keyup', this.tryDeactivateShift)
+    window.removeEventListener('keydown', this.onKeyDown)
+    window.removeEventListener('keyup', this.onKeyUp)
   }
 }
 
@@ -51,13 +56,8 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
-  width: 40%;
-  height: 40%;
   z-index: 5;
   background-color: rgba(0, 0, 0, 0.4);
-  resize: both;
-  overflow: auto;
 
   display: flex;
   align-items: center;
@@ -67,8 +67,17 @@ export default {
 }
 .preview.shifted {
   opacity: 0.7;
-  transform: translateY(100px) scale(0.9);
+  transform: translateY(100px);
   pointer-events: none;
+}
+.instructions {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  line-height: 1.3;
 }
 button {
   position: absolute;

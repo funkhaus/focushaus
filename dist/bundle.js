@@ -11327,7 +11327,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.preview[data-v-27c21b70] {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  width: 40%;\n  height: 40%;\n  z-index: 5;\n  background-color: rgba(0, 0, 0, 0.4);\n  resize: both;\n  overflow: auto;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  transition: transform 0.4s, opacity 0.4s;\n}\n.preview.shifted[data-v-27c21b70] {\n  opacity: 0.7;\n  transform: translateY(100px) scale(0.9);\n  pointer-events: none;\n}\nbutton[data-v-27c21b70] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n.resizable[data-v-27c21b70] {\n  resize: both;\n  overflow: auto;\n  border: 3px solid #fff;\n  border-radius: 3px;\n  width: 300px;\n  height: 300px;\n  background-size: cover;\n}\n\n", ""]);
+exports.push([module.i, "\n.preview[data-v-27c21b70] {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 5;\n  background-color: rgba(0, 0, 0, 0.4);\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  transition: transform 0.4s, opacity 0.4s;\n}\n.preview.shifted[data-v-27c21b70] {\n  opacity: 0.7;\n  transform: translateY(100px);\n  pointer-events: none;\n}\n.instructions[data-v-27c21b70] {\n  color: #fff;\n  font-weight: 700;\n  font-size: 18px;\n  position: absolute;\n  top: 10px;\n  text-align: center;\n  line-height: 1.3;\n}\nbutton[data-v-27c21b70] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n.resizable[data-v-27c21b70] {\n  resize: both;\n  overflow: auto;\n  border: 3px solid #fff;\n  border-radius: 3px;\n  width: 300px;\n  height: 300px;\n  background-size: cover;\n}\n\n", ""]);
 
 // exports
 
@@ -11343,7 +11343,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: {
       shifted: _vm.shiftDown
     }
-  }, [_c('button', {
+  }, [_vm._m(0), _vm._v(" "), _c('button', {
     on: {
       "click": function($event) {
         _vm.$emit('previewToggled')
@@ -11357,7 +11357,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })
   })])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "instructions"
+  }, [_vm._v("Resize the preview with the handle on the lower right hand corner."), _c('br'), _vm._v("Hold ⌘ to click through the preview and edit the focal point.")])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -11480,6 +11484,7 @@ Object.defineProperty(exports, "__esModule", {
 //
 //
 //
+//
 
 
 exports.default = {
@@ -11491,24 +11496,28 @@ exports.default = {
   },
 
   methods: {
-    tryActivateShift: function tryActivateShift(evt) {
+    onKeyDown: function onKeyDown(evt) {
+      if (evt.keyCode === 27) {
+        this.$emit('previewToggled');
+        evt.preventDefault();
+      }
       if (evt.keyCode === 91) {
         this.shiftDown = true;
       }
     },
-    tryDeactivateShift: function tryDeactivateShift(evt) {
+    onKeyUp: function onKeyUp(evt) {
       if (evt.keyCode === 91) {
         this.shiftDown = false;
       }
     }
   },
   activated: function activated() {
-    window.addEventListener('keydown', this.tryActivateShift);
-    window.addEventListener('keyup', this.tryDeactivateShift);
+    window.addEventListener('keydown', this.onKeyDown);
+    window.addEventListener('keyup', this.onKeyUp);
   },
   deactivated: function deactivated() {
-    window.removeEventListener('keydown', this.tryActivateShift);
-    window.removeEventListener('keyup', this.tryDeactivateShift);
+    window.removeEventListener('keydown', this.onKeyDown);
+    window.removeEventListener('keyup', this.onKeyUp);
   }
 };
 
