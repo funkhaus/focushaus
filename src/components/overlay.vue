@@ -7,7 +7,7 @@
     </div>
 
     <div class="controls">
-      <button>Show Preview</button>
+      <button class="button" @click="$emit('previewToggled')">Show Preview</button>
     </div>
   </div>
 
@@ -83,6 +83,8 @@ export default {
   }
   .controls {
     position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
   }
 
 

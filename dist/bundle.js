@@ -10983,6 +10983,20 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 10 */,
@@ -11075,7 +11089,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.overlay-wrap[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  margin: auto;\n}\n.overlay[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.axis[data-v-20d6ced0] {\n  position: absolute;\n  background-color: #000;\n  border: 1px solid #fff;\n  pointer-events: none;\n}\n.x.axis[data-v-20d6ced0] {\n  left: -5px;\n  right: -5px;\n}\n.y.axis[data-v-20d6ced0] {\n  top: -5px;\n  bottom: -5px;\n}\n.controls[data-v-20d6ced0] {\n  position: absolute;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.overlay-wrap[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  margin: auto;\n}\n.overlay[data-v-20d6ced0] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.axis[data-v-20d6ced0] {\n  position: absolute;\n  background-color: #000;\n  border: 1px solid #fff;\n  pointer-events: none;\n}\n.x.axis[data-v-20d6ced0] {\n  left: -5px;\n  right: -5px;\n}\n.y.axis[data-v-20d6ced0] {\n  top: -5px;\n  bottom: -5px;\n}\n.controls[data-v-20d6ced0] {\n  position: absolute;\n  top: calc(100% + 16px);\n  right: 0;\n}\n\n\n", ""]);
 
 // exports
 
@@ -11201,13 +11215,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     style: ({
       left: ((_vm.offset.x) + "%")
     })
-  })]), _vm._v(" "), _vm._m(0)])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "controls"
-  }, [_c('button', [_vm._v("Show Preview")])])
-}]
+  }, [_c('button', {
+    staticClass: "button",
+    on: {
+      "click": function($event) {
+        _vm.$emit('previewToggled')
+      }
+    }
+  }, [_vm._v("Show Preview")])])])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -11224,7 +11243,9 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_27c21b70_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_preview_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_preview_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_preview_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_preview_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_27c21b70_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_preview_vue__ = __webpack_require__(20);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -11232,7 +11253,7 @@ function injectStyle (ssrContext) {
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = null
+
 /* template */
 
 /* styles */
@@ -11242,8 +11263,8 @@ var __vue_scopeId__ = "data-v-27c21b70"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __vue_script__,
-  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_template_compiler_index_id_data_v_27c21b70_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_preview_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_preview_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_27c21b70_hasScoped_true_node_modules_vue_loader_lib_selector_type_template_index_0_preview_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -11306,7 +11327,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.preview[data-v-27c21b70] {\n  position: absolute;\n}\n\n", ""]);
+exports.push([module.i, "\n.preview[data-v-27c21b70] {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  width: 40%;\n  height: 40%;\n  z-index: 5;\n  background-color: rgba(0, 0, 0, 0.4);\n  resize: both;\n  overflow: auto;\n\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  transition: transform 0.4s, opacity 0.4s;\n}\n.preview.shifted[data-v-27c21b70] {\n  opacity: 0.7;\n  transform: translateY(100px) scale(0.9);\n  pointer-events: none;\n}\nbutton[data-v-27c21b70] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n}\n.resizable[data-v-27c21b70] {\n  resize: both;\n  overflow: auto;\n  border: 3px solid #fff;\n  border-radius: 3px;\n  width: 300px;\n  height: 300px;\n  background-size: cover;\n}\n\n", ""]);
 
 // exports
 
@@ -11318,8 +11339,23 @@ exports.push([module.i, "\n.preview[data-v-27c21b70] {\n  position: absolute;\n}
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "preview"
-  }, [_vm._v("\n  Preview\n")])
+    staticClass: "preview",
+    class: {
+      shifted: _vm.shiftDown
+    }
+  }, [_c('button', {
+    on: {
+      "click": function($event) {
+        _vm.$emit('previewToggled')
+      }
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c('div', {
+    staticClass: "resizable",
+    style: ({
+      'background-image': ("url(" + _vm.imageSrc + ")"),
+      'background-position': ((_vm.offset.x) + "% " + (_vm.offset.y) + "%")
+    })
+  })])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11367,7 +11403,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n.focushaus-wrap[data-v-7145d20c] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n\n", ""]);
+exports.push([module.i, "\n.focushaus-wrap[data-v-7145d20c] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.slide-enter-active[data-v-7145d20c], .slide-leave-active[data-v-7145d20c] {\n  transition: opacity 0.4s, transform 0.4s;\n}\n.slide-enter[data-v-7145d20c], .slide-leave-to[data-v-7145d20c] {\n  transform: scale(0.9);\n  opacity: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -11387,9 +11423,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "offset": _vm.offset
     },
     on: {
-      "offsetChanged": _vm.updateOffset
+      "offsetChanged": _vm.updateOffset,
+      "previewToggled": function($event) {
+        _vm.showPreview = !_vm.showPreview
+      }
     }
-  }), _vm._v(" "), (_vm.showPreview) ? _c('fh-preview') : _vm._e()], 1)
+  }), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "slide"
+    }
+  }, [_c('keep-alive', [(_vm.showPreview) ? _c('fh-preview', {
+    staticClass: "preview",
+    attrs: {
+      "image-src": _vm.imageSrc,
+      "offset": _vm.offset
+    },
+    on: {
+      "previewToggled": function($event) {
+        _vm.showPreview = !_vm.showPreview
+      }
+    }
+  }) : _vm._e()], 1)], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11401,6 +11455,62 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-7145d20c", esExports)
   }
 }
+
+/***/ }),
+/* 24 */,
+/* 25 */,
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+exports.default = {
+  props: ['image-src', 'offset'],
+  data: function data() {
+    return {
+      shiftDown: false
+    };
+  },
+
+  methods: {
+    tryActivateShift: function tryActivateShift(evt) {
+      if (evt.keyCode === 91) {
+        this.shiftDown = true;
+      }
+    },
+    tryDeactivateShift: function tryDeactivateShift(evt) {
+      if (evt.keyCode === 91) {
+        this.shiftDown = false;
+      }
+    }
+  },
+  activated: function activated() {
+    window.addEventListener('keydown', this.tryActivateShift);
+    window.addEventListener('keyup', this.tryDeactivateShift);
+  },
+  deactivated: function deactivated() {
+    window.removeEventListener('keydown', this.tryActivateShift);
+    window.removeEventListener('keyup', this.tryDeactivateShift);
+  }
+};
 
 /***/ })
 /******/ ]);

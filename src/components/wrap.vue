@@ -2,9 +2,23 @@
 
   <div class="focushaus-wrap">
 
-    <fh-overlay :fh-width="dimensions.width" :fh-height="dimensions.height" :offset="offset" @offsetChanged="updateOffset"/>
+    <fh-overlay
+      :fh-width="dimensions.width"
+      :fh-height="dimensions.height"
+      :offset="offset"
+      @offsetChanged="updateOffset"
+      @previewToggled="showPreview = !showPreview"/>
 
-    <fh-preview v-if="showPreview"/>
+    <transition name="slide">
+      <keep-alive>
+        <fh-preview
+          class="preview"
+          v-if="showPreview"
+          :image-src="imageSrc"
+          :offset="offset"
+          @previewToggled="showPreview = !showPreview"/>
+      </keep-alive>
+    </transition>
 
   </div>
 
@@ -63,6 +77,13 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: opacity 0.4s, transform 0.4s;
+}
+.slide-enter, .slide-leave-to {
+  transform: scale(0.9);
+  opacity: 0;
 }
 
 </style>
