@@ -2,6 +2,10 @@
 
 > Pick image focal points in Wordpress and preview the results.
 
+## TODO:
+* Document convenience functions
+* Make updating the input fields manually update the crosshair
+
 ## Dev Setup
 
 ``` bash
