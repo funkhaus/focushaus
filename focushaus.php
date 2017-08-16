@@ -13,36 +13,42 @@ Author: Sander Moolin, Funkhaus
     }
     add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
-    function edit_offset( $form_fields, $post ) {
+    function focushaus_edit_offset_fields( $form_fields, $post ) {
 
-      $field_value = get_post_meta( $post->ID, '_custom_offset_x', true );
-      $form_fields['_custom_offset_x'] = array(
-          'value' => $field_value ? $field_value : '',
-          'label' => __( 'Horizontal Offset (%)' )
+      ob_start();?>
+        <label for="attachments[<?php echo $post->ID; ?>][_custom_offset_x]">
+          <span class="name">X offset (%)</span>
+          <input type="number" class="focushaus-offset x" name="attachments[<?php echo $post->ID; ?>][_custom_offset_x]" value="<?php echo $post->_custom_offset_x; ?>" />
+        </label>
+        <label for="attachments[<?php echo $post->ID; ?>][_custom_offset_y]">
+          <span class="name">Y offset (%)</span>
+          <input type="number" class="focushaus-offset y"  name="attachments[<?php echo $post->ID; ?>][_custom_offset_y]"  value="<?php echo $post->_custom_offset_y; ?>" />
+        </label>
+      <?php
+
+      $html = ob_get_clean();
+
+      $form_fields['focushaus'] = array(
+        'input' => 'html',
+        'label' => __( 'Focal Point' ),
+        'html'  => $html
       );
-
-      // $field_value = get_post_meta( $post->ID, '_custom_offset_y', true );
-      // $form_fields['_custom_offset_y'] = array(
-      //     'value' => $field_value ? $field_value : '',
-      //     'label' => __( 'Vertical Offset (%)' )
-      // );
 
       return $form_fields;
     }
-    add_filter( 'attachment_fields_to_edit', 'edit_offset', 10, 2 );
+    add_filter( 'attachment_fields_to_edit', 'focushaus_edit_offset_fields', 10, 2 );
 
-    function save_offset( $attachment_id ) {
+    function focushaus_save_offset( $attachment_id ) {
       if ( isset( $_REQUEST['attachments'][$attachment_id]['_custom_offset_x'] ) ) {
           $offset_x = $_REQUEST['attachments'][$attachment_id]['_custom_offset_x'];
           update_post_meta( $attachment_id, '_custom_offset_x', $offset_x );
       }
-      // if ( isset( $_REQUEST['attachments'][$attachment_id]['_custom_offset_y'] ) ) {
-      //     $offset_y = $_REQUEST['attachments'][$attachment_id]['_custom_offset_y'];
-      //     update_post_meta( $attachment_id, '_custom_offset_y', $offset_y );
-      // }
+      if ( isset( $_REQUEST['attachments'][$attachment_id]['_custom_offset_y'] ) ) {
+          $offset_y = $_REQUEST['attachments'][$attachment_id]['_custom_offset_y'];
+          update_post_meta( $attachment_id, '_custom_offset_y', $offset_y );
+      }
     }
-    add_action( 'edit_attachment', 'save_offset' );
-
+    add_action( 'edit_attachment', 'focushaus_save_offset' );
 
 
 

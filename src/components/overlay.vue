@@ -1,7 +1,7 @@
 <template>
 
   <div class="overlay-wrap" :style="{ 'max-width': `${fhWidth}px`, 'max-height': `${fhHeight}px` }">
-    <div class="overlay" @mousemove="mousemove" @mousedown="mousedown" @mouseup="mouseup" >
+    <div class="overlay" @mousedown="mousedown" >
       <div class="x axis" :style="{ top: `${offset.y}%` }"></div>
       <div class="y axis" :style="{ left: `${offset.x}%` }"></div>
     </div>
@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import queryString from 'query-string'
 
 export default {
   props: ['fh-width', 'fh-height', 'offset'],
@@ -36,8 +37,11 @@ export default {
       this.mouseDown = true
 
       const rect = evt.target.getBoundingClientRect()
-      const x = (evt.offsetX / rect.width) * 100
-      const y = (evt.offsetY / rect.height) * 100
+      const x = Math.round((evt.offsetX / rect.width) * 100)
+      const y = Math.round((evt.offsetY / rect.height) * 100)
+
+      jQuery('.focushaus-offset.x').val(x)
+      jQuery('.focushaus-offset.y').val(y).change()
 
       this.$emit('offsetChanged', { x, y })
     },

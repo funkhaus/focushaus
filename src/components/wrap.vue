@@ -46,6 +46,11 @@ export default {
     }
 
     img.src = this.imageSrc
+
+    // Set starting value according to metadata
+    const x = document.querySelector('.focushaus-offset.x').getAttribute('value')
+    const y = document.querySelector('.focushaus-offset.y').getAttribute('value')
+    this.updateOffset({ x, y })
   },
   methods: {
     updateOffset: function(newOffset) {
