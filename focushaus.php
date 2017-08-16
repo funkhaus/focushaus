@@ -57,16 +57,14 @@ Author: Sander Moolin, Funkhaus
      * Convenience functions
      */
     function get_custom_background_position($target_post = null){
-      $target_post = get_post($target_post);
-
       // Get the featured image if we have one
       if( has_post_thumbnail($target_post) ){
         $target_post = get_post_thumbnail_id($target_post);
       }
 
       // Get the offset values
-      $offset_x = empty($target_post->_custom_offset_x) ? 50 : $target_post->_custom_offset_x;
-      $offset_y = empty($target_post->_custom_offset_y) ? 50 : $target_post->_custom_offset_y;
+      $offset_x = get_post_meta($target_post, '_custom_offset_x', true);
+      $offset_y = get_post_meta($target_post, '_custom_offset_y', true);
 
       return $offset_x . '% ' . $offset_y . '%';
     }
