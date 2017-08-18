@@ -64,7 +64,13 @@ Author: Sander Moolin, Funkhaus
 
       // Get the offset values
       $offset_x = get_post_meta($target_post, '_custom_offset_x', true);
+      if( empty($offset_x) ){
+        $offset_x = 50;   
+      }
       $offset_y = get_post_meta($target_post, '_custom_offset_y', true);
+      if( empty($offset_y) ){
+        $offset_y = 50;   
+      }
 
       return $offset_x . '% ' . $offset_y . '%';
     }
