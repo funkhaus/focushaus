@@ -39,4 +39,6 @@ __Focushaus__
 
 http://funkhaus.us
 
-Version: 1.0.0
+Version: 1.0.1
+
+* 1.0.1 - Added `get_offset_x` and `get_offset_y` convenience functions, placed these in main function
