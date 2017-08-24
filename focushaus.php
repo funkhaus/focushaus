@@ -76,7 +76,7 @@ Author: Sander Moolin, Funkhaus
         $target_post = get_post_thumbnail_id($target_post);
       }
 
-      $offset_y = get_post_meta($target_post, '_custom_offset_x', true);
+      $offset_y = get_post_meta($target_post, '_custom_offset_y', true);
       if( empty($offset_y) ){
           $offset_y = 50;
       }
