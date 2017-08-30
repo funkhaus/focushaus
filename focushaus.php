@@ -2,7 +2,7 @@
 /*
 Plugin Name: Focushaus
 Description: Give images focal points.
-Version: 1.0.0
+Version: 1.0.2
 Author: Sander Moolin, Funkhaus
 */
 
@@ -20,11 +20,11 @@ Author: Sander Moolin, Funkhaus
       ob_start();?>
         <label for="attachments[<?php echo $post->ID; ?>][_custom_offset_x]">
           <span class="name">X offset (%)</span>
-          <input type="number" class="focushaus-offset x" name="attachments[<?php echo $post->ID; ?>][_custom_offset_x]" value="<?php echo $post->_custom_offset_x; ?>" />
+          <input readonly type="number" class="focushaus-offset x" name="attachments[<?php echo $post->ID; ?>][_custom_offset_x]" value="<?php echo $post->_custom_offset_x; ?>" />
         </label>
         <label for="attachments[<?php echo $post->ID; ?>][_custom_offset_y]">
           <span class="name">Y offset (%)</span>
-          <input type="number" class="focushaus-offset y"  name="attachments[<?php echo $post->ID; ?>][_custom_offset_y]"  value="<?php echo $post->_custom_offset_y; ?>" />
+          <input readonly type="number" class="focushaus-offset y"  name="attachments[<?php echo $post->ID; ?>][_custom_offset_y]"  value="<?php echo $post->_custom_offset_y; ?>" />
         </label>
       <?php
 
