@@ -66,7 +66,7 @@ __Focushaus__
 
 http://funkhaus.us
 
-Version: 1.0.1
+Version: 1.0.2
 
 * 1.0.2 - Documented convenience functions, made input fields readonly
 * 1.0.1 - Added `get_offset_x` and `get_offset_y` convenience functions, placed these in main function
