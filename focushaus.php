@@ -2,8 +2,10 @@
 /*
 Plugin Name: Focushaus
 Description: Give images focal points.
-Version: 1.0.2
-Author: Sander Moolin, Funkhaus
+Version: 1.0.3
+Author: Funkhaus
+Plugin URI:  https://github.com/funkhaus/focushaus
+Author URI:  http://funkhaus.us
 */
 
     // Enqueue scripts
@@ -95,6 +97,16 @@ Author: Sander Moolin, Funkhaus
     function the_custom_background_position($target_post = null){
       echo get_custom_background_position($target_post);
     }
+
+    // handle Rest-Easy if it exists
+    function add_focushaus_background_position($input){
+        $input['focus'] = array(
+            'x' => get_offset_x($input->id),
+            'y' => get_offset_y($input->id)
+        );
+        return $input;
+    }
+    add_filter('rez_serialize_attachment', 'add_focushaus_background_position');
 
 
 ?>

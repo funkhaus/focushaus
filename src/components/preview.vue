@@ -23,7 +23,7 @@ export default {
         cmpStyle() {
             return {
                 "background-image": `url(${this.imageSrc})`,
-                "background-position": `${offset.x}% ${offset.y}%`
+                "background-position": `${this.offset.x}% ${this.offset.y}%`
             };
         }
     },
