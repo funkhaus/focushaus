@@ -2,7 +2,7 @@
 /*
 Plugin Name: Focushaus
 Description: Give images focal points.
-Version: 1.0.3
+Version: 1.0.4
 Author: Funkhaus
 Plugin URI:  https://github.com/funkhaus/focushaus
 Author URI:  http://funkhaus.us
@@ -101,8 +101,8 @@ Author URI:  http://funkhaus.us
     // handle Rest-Easy if it exists
     function add_focushaus_background_position($input){
         $input['focus'] = array(
-            'x' => get_offset_x($input->id),
-            'y' => get_offset_y($input->id)
+            'x' => get_offset_x($input['ID']),
+            'y' => get_offset_y($input['ID'])
         );
         return $input;
     }
