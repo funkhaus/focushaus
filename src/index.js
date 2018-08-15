@@ -1,11 +1,14 @@
-import setupOverlay from "./setupOverlay";
+import setupOverlay from './setupOverlay'
 
 const init = () => {
-    wp.media.view.Modal.prototype.on("open", () => {
-        setupOverlay();
-    });
-};
+    wp.media.view.Modal.prototype.on('open', () => {
+        // timeout removes requirement for hard reload after one usage
+        setTimeout(() => {
+            setupOverlay()
+        }, 100)
+    })
+}
 
-window.addEventListener("load", evt => {
-    init();
-});
+window.addEventListener('load', evt => {
+    init()
+})

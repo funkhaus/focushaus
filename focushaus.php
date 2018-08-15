@@ -2,7 +2,7 @@
 /*
 Plugin Name: Focushaus
 Description: Give images focal points.
-Version: 1.0.4
+Version: 1.0.5
 Author: Funkhaus
 Plugin URI:  https://github.com/funkhaus/focushaus
 Author URI:  http://funkhaus.us
