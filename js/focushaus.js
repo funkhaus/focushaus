@@ -52,6 +52,7 @@ var focalPointUI = {
             }
         })
 
+        // Handle left/right clicking of media navigation
         $panel.on('click', 'button.left, button.right', function(e) {
             focalPointUI.setupImage()
         })
