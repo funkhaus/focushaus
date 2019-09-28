@@ -8,6 +8,9 @@ var focalPointUI = {
             wp.media.frame.on('edit:attachment', function() {
                 focalPointUI.setupImage()
             })
+            wp.media.frame.on('refresh', function() {
+                focalPointUI.setupImage()
+            })
         } else {
             // Setup image on a Edit Media page
             focalPointUI.setupImage()
