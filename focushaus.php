@@ -13,7 +13,7 @@ Author URI:  http://funkhaus.us
  */
     function focushaus_admin_scripts() {
         wp_enqueue_script('jquery');
-        wp_enqueue_script('focushaus', plugin_dir_path( __FILE__ ) . 'js/focushaus.js', 'jquery', '2.0b');
+        wp_enqueue_script('focushaus', plugins_url('js/focushaus.js', __FILE__), 'jquery', '2.0b');
     }
     add_action( 'admin_enqueue_scripts', 'focushaus_admin_scripts' );
 
@@ -21,7 +21,7 @@ Author URI:  http://funkhaus.us
  * Enqueue styles
  */
     function focushaus_admin_styles() {
-        wp_enqueue_style('focushaus', plugin_dir_path( __FILE__ ) . 'css/focushaus.css', null, '2.0b');
+        wp_enqueue_style('focushaus', plugins_url('css/focushaus.css', __FILE__), null, '2.0b');
     }
     add_action( 'admin_print_styles', 'focushaus_admin_styles' );
 ?>
