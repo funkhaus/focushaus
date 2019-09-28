@@ -1,6 +1,6 @@
 # focushaus
 
-Define a focal point for an image. Requires the `<responsive-image>` component that is part of the Stackhaus Nuxt theme framework. [See here for more information](https://github.com/funkhaus/stackhaus).
+Define a focal point for an image in WordPress. Requires the `<responsive-image>` component that is part of the Stackhaus Nuxt theme framework. [See here for more information](https://github.com/funkhaus/stackhaus).
 
 ## Usage
 
